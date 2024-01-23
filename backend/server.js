@@ -1,6 +1,9 @@
+//loads our .env file with port
 require('dotenv').config()
 
 const express = require('express')
+const workoutRoute = require('./routes/workouts.js')
+
 
 //express app
 const app = express()
@@ -11,12 +14,10 @@ app.use((req, res, next) => {
   next()
 })
 
-//route handler
-app.get('/', (req, res) => {
-  res.json({mssg: "Welcome to the app"})
-})
+app.use('/api/workouts', workoutRoute)
+
 
 //listen for requests
 app.listen(process.env.PORT, () => {
-  console.log('listening to port 4000')
+  console.log('listening to port ${process.env.PORT}')
 })
