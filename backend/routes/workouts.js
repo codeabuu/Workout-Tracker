@@ -7,18 +7,22 @@ router.get('/', (req, res) => {
 })
 
 //get single workout
-router.get('/:id', (res, req) => {
+router.get('/:id', (req, res) => {
   res.json({mssg: "GET a single workout"})
 })
 
 //post a new workout
-router.post('/', (res, req) => {
+router.post('/', (req, res) => {
   res.json({msg: 'POST new workout'})
 })
 
 //delete workout
-router.delete('/', (res, req) => {
+router.delete('/:id', (req, res) => {
   res.json({msg: 'Delete workout'})
+})
+
+router.patch('/:id', (req, res) => {
+  res.json({msg: "Update a workout"})
 })
 
 module.exports = router

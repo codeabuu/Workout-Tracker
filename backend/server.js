@@ -9,6 +9,7 @@ const workoutRoute = require('./routes/workouts.js')
 const app = express()
 
 //middleware,access to req and res
+app.use(express.json())
 app.use((req, res, next) => {
   console.log(req.path, req.method)
   next()
