@@ -1,10 +1,10 @@
-const workout = require("../models/workout")
+const Workout = require("../models/workout")
 
 //get all workouts
 const getWorkout = async(req, res) => {
-  const workouts = await workout.find({}).sort ({createdAt: -1})
+  const workouts = await Workout.find({}).sort ({createdAt: -1})
 
-  response.status(200).json(workouts)
+  res.status(200).json(workouts)
 
 }
 
@@ -12,7 +12,7 @@ const getWorkout = async(req, res) => {
 const getSworkout = async(req, res) => {
   const {id} = req.params
 
-  const workout = await Workout.findById()
+  const workout = await Workout.findById(id)
   if (!workout) {
     return res.status(404).json({error: "No such workout"})
   }
