@@ -1,6 +1,7 @@
 import { useWorkoutCon } from "../hooks/userWorkoutCon";
 
 const WorkoutDetails = ({workout}) => {
+  const {dispatch} = useWorkoutCon()
 
   const handleClick = async() => {
     const response = await fetch('/api/workouts/' + workout._id, {
@@ -9,7 +10,7 @@ const WorkoutDetails = ({workout}) => {
     })
     const json = await response.json()
     if (response.ok) {
-      
+      dispatch({type: "DELETE_WORKOUT", payload: json})
     }
       	  
   }
