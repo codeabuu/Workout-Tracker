@@ -11,7 +11,6 @@ const WorkoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post("https://mern-stackb.vercel.app/")
 
     const workout = {title, load, reps}
     
